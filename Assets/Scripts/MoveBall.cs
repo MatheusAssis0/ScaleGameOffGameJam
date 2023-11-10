@@ -7,6 +7,7 @@ public class MoveBall : MonoBehaviour
     private bool canMove, canMoveAgain;
     private Rigidbody rb;
     public float strength;
+    [SerializeField] private float slowSpeed, timeToSlow;
     [SerializeField] private GameObject arrow, ball;
 
     private void Start()
@@ -26,6 +27,7 @@ public class MoveBall : MonoBehaviour
 
         Vector3 force = new Vector3(strength, 0, 0);
         rb.AddForce(transform.forward * strength, ForceMode.Impulse);
+        StartCoroutine(SlowDownPlayer());
     }
 
     private void UseCheck()
@@ -42,5 +44,22 @@ public class MoveBall : MonoBehaviour
             canMove = false;
             canMoveAgain = false;
         }
+    }
+
+    IEnumerator SlowDownPlayer()
+    {
+        Vector3 slow = new Vector3(slowSpeed, 0, 0);
+        if(rb.velocity.x > 0)
+        {
+            rb.velocity += slow;
+        }
+        else if(rb.velocity.x < 0)
+        {
+            rb.velocity = Vector3.zero;
+        }
+
+        yield return new WaitForSeconds(timeToSlow);
+
+        StartCoroutine(SlowDownPlayer());
     }
 }

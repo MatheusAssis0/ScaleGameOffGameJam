@@ -24,7 +24,7 @@ public class ImpulseDirection : MonoBehaviour
     private void RotateArrow()
     {
         Quaternion targetRight = Quaternion.Euler(0, 180, bounds);
-        Quaternion targetLeft = Quaternion.Euler(0, 180, 0);
+        Quaternion targetLeft = Quaternion.Euler(0, 180, 45);
 
         if (toRight && !toLeft)
         {
