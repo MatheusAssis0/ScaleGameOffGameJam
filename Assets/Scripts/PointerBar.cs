@@ -6,6 +6,7 @@ public class PointerBar : MonoBehaviour
 {
     [SerializeField] private GameObject pointer;
     [SerializeField] private float speed, boundsLeft, boundsRight;
+    [SerializeField] private GameObject colliders;
     public bool toLeft, toRight;
     
 
@@ -22,6 +23,7 @@ public class PointerBar : MonoBehaviour
         {
             toLeft = false;
             toRight = false;
+            colliders.SetActive(true);
         }
     }
 
@@ -32,7 +34,7 @@ public class PointerBar : MonoBehaviour
 
         if (toRight && !toLeft)
         {
-            pointer.transform.position = Vector3.Lerp(pointer.transform.position, targetRight, speed * Time.deltaTime);
+            pointer.transform.position = Vector3.LerpUnclamped(pointer.transform.position, targetRight, speed * Time.deltaTime);
             if (Vector3.Distance(pointer.transform.position, targetRight) <= 0.001f)
             {
                 toLeft = true;
@@ -41,7 +43,7 @@ public class PointerBar : MonoBehaviour
         }
         else if(toLeft && !toRight)
         {
-            pointer.transform.position = Vector3.Lerp(pointer.transform.position, targetLeft, speed * Time.deltaTime);
+            pointer.transform.position = Vector3.LerpUnclamped(pointer.transform.position, targetLeft, speed * Time.deltaTime);
             if (Vector3.Distance(pointer.transform.position, targetLeft) <= 0.001f)
             {
                 toLeft = false;
