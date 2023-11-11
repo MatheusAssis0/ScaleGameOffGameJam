@@ -5,7 +5,7 @@ using UnityEngine;
 public class PointerBar : MonoBehaviour
 {
     [SerializeField] private GameObject pointer;
-    [SerializeField] private float speed, bounds;
+    [SerializeField] private float speed, boundsLeft, boundsRight;
     public bool toLeft, toRight;
     
 
@@ -27,8 +27,8 @@ public class PointerBar : MonoBehaviour
 
     private void MoveThePointer()
     {
-        Vector3 targetRight = new Vector3(bounds, pointer.transform.position.y, pointer.transform.position.z);
-        Vector3 targetLeft = new Vector3(-bounds, pointer.transform.position.y, pointer.transform.position.z);
+        Vector3 targetRight = new Vector3(boundsRight, pointer.transform.position.y, pointer.transform.position.z);
+        Vector3 targetLeft = new Vector3(boundsLeft, pointer.transform.position.y, pointer.transform.position.z);
 
         if (toRight && !toLeft)
         {
