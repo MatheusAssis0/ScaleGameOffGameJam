@@ -9,11 +9,13 @@ public class MoveBall : MonoBehaviour
     public float strength;
     [SerializeField] private float slowSpeed, timeToSlow;
     [SerializeField] private GameObject arrow, ball;
+    private GameManager gameManager;
 
     private void Start()
     {
         canMoveAgain = true;
         rb = GetComponent<Rigidbody>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
@@ -59,6 +61,11 @@ public class MoveBall : MonoBehaviour
         }
 
         yield return new WaitForSeconds(timeToSlow);
+
+        if (rb.velocity.x == 0)
+        {
+            gameManager.gameOver = true;
+        }
 
         StartCoroutine(SlowDownPlayer());
     }
