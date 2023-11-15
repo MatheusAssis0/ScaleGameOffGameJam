@@ -7,6 +7,7 @@ public class MoveBall : MonoBehaviour
     private bool canMove, canMoveAgain;
     private Rigidbody rb;
     public float strength;
+    public float aditionalForce;
     [SerializeField] private float slowSpeed, timeToSlow;
     [SerializeField] private GameObject arrow, ball;
     private GameManager gameManager;
@@ -16,6 +17,11 @@ public class MoveBall : MonoBehaviour
         canMoveAgain = true;
         rb = GetComponent<Rigidbody>();
         gameManager = FindObjectOfType<GameManager>();
+        if(!PlayerPrefs.HasKey("Strength"))
+        {
+            PlayerPrefs.SetFloat("Strength", 10);
+        }
+        strength = PlayerPrefs.GetFloat("Strength");
     }
 
     private void Update()
@@ -28,7 +34,7 @@ public class MoveBall : MonoBehaviour
         yield return new WaitForSeconds(5);
 
         Vector3 force = new Vector3(strength, 0, 0);
-        rb.AddForce(transform.forward * strength, ForceMode.Impulse);
+        rb.AddForce(transform.forward * strength * aditionalForce, ForceMode.Impulse);
         StartCoroutine(SlowDownPlayer());
     }
 

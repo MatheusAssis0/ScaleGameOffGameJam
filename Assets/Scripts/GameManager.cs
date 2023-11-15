@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField] private TextMeshProUGUI scoreTxt, coinsTxt;
+    public TextMeshProUGUI scoreTxt, coinsTxt;
     public float score;
     [SerializeField] private GameObject gameOverPanel;
     public bool gameOver;
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     private void SetScoreText()
     {
         score = player.transform.position.x - 6.51f;
-        scoreTxt.SetText("Score: " + score);
+        scoreTxt.SetText("Score: " + Mathf.FloorToInt(score));
     }
 
     public static void GameOver()
@@ -83,5 +83,6 @@ public class GameManager : MonoBehaviour
         coins += score;
         oneTime = true;
         PlayerPrefs.SetFloat("Coins", coins);
+        coinsTxt.text = Mathf.FloorToInt(PlayerPrefs.GetFloat("Coins")).ToString();
     }
 }

@@ -22,21 +22,15 @@ public class StrengthBar : MonoBehaviour
             case StrengthZone.Green:
                 ball.transform.localScale *= 0.75f;
                 ballRb.mass = 1;
-                script.strength *= 1.75f;
+                script.aditionalForce = 1.75f;
                 break;
-        }
-        switch(strengthZone)
-        {
             case StrengthZone.Yellow:
-                script.strength *= 1.25f;
+                script.aditionalForce = 1.25f;
                 break;
-        }
-        switch(strengthZone)
-        {
             case StrengthZone.Red:
                 ball.transform.localScale *= 1.5f;
                 ballRb.mass = 5;
-                script.strength *= 0.75f;
+                script.aditionalForce = 0.75f;
                 break;
         }
     }
