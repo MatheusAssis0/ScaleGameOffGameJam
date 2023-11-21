@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemStrength : MonoBehaviour
+public class ItemStrength : Shop
 {
-    public enum StrItem { Stage0, Stage1, Stage2, Stage3, Stage4, Stage5, Stage6, Stage7, Stage8, Stage9, Stage10};
-    public StrItem strItem;
     public int[] strToAdd;
     private int str;
-    public int enumValue;
     private MoveBall script;
     [SerializeField] private GameObject itemBar;
 
@@ -115,7 +112,7 @@ public class ItemStrength : MonoBehaviour
         }
     }
 
-    public void BuyItem()
+    public override void BuyItem()
     {
         if (strItem == StrItem.Stage10)
         {

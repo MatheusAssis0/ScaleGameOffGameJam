@@ -1001,8 +1001,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strItem: 0
-  strToAdd: 050000000a0000000f00000014000000190000001e00000023000000280000002d00000032000000
   enumValue: 0
+  strBuyBtn: {fileID: 95478239}
+  strToAdd: 01000000020000000300000004000000050000000500000005000000050000000500000005000000
   itemBar: {fileID: 304698482}
 --- !u!1 &356428882
 GameObject:
@@ -3101,8 +3102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strItem: 0
-  price: 050000000a0000000f00000014000000190000001e00000023000000280000002d00000032000000
   enumValue: 0
+  strBuyBtn: {fileID: 95478239}
+  price: 050000000a0000000f00000014000000190000001e00000023000000280000002d00000032000000
   itemPriceTxt: {fileID: 1122304179}
 --- !u!1 &1134377521
 GameObject:
@@ -5715,9 +5717,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1827673027489844892, guid: b0e80d7abdfbcbc47bbb018f18d9d679, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.493499
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827673027489844892, guid: b0e80d7abdfbcbc47bbb018f18d9d679, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.2246
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684477838697593603, guid: b0e80d7abdfbcbc47bbb018f18d9d679, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.491261
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684477838697593603, guid: b0e80d7abdfbcbc47bbb018f18d9d679, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.2201
+      objectReference: {fileID: 0}
     - target: {fileID: 5504662765585289513, guid: b0e80d7abdfbcbc47bbb018f18d9d679, type: 3}
       propertyPath: m_Name
       value: Bg
+      objectReference: {fileID: 0}
+    - target: {fileID: 7905940383212273890, guid: b0e80d7abdfbcbc47bbb018f18d9d679, type: 3}
+      propertyPath: m_Size.x
+      value: 2.6028519
+      objectReference: {fileID: 0}
+    - target: {fileID: 7905940383212273890, guid: b0e80d7abdfbcbc47bbb018f18d9d679, type: 3}
+      propertyPath: m_Size.y
+      value: 1340.5793
+      objectReference: {fileID: 0}
+    - target: {fileID: 7905940383212273890, guid: b0e80d7abdfbcbc47bbb018f18d9d679, type: 3}
+      propertyPath: m_Center.y
+      value: 669.0287
       objectReference: {fileID: 0}
     - target: {fileID: 9199228694291320749, guid: b0e80d7abdfbcbc47bbb018f18d9d679, type: 3}
       propertyPath: m_RootOrder

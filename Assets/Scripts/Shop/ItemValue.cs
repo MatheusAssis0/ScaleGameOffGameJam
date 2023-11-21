@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ItemValue : MonoBehaviour
+public class ItemValue : Shop
 {
-    public enum StrItem { Stage0, Stage1, Stage2, Stage3, Stage4, Stage5, Stage6, Stage7, Stage8, Stage9, Stage10 };
-    public StrItem strItem;
     public int[] price;
     private int itemPrice;
-    public int enumValue;
     [SerializeField] private TextMeshProUGUI itemPriceTxt;
 
     private void OnEnable()
@@ -119,7 +116,7 @@ public class ItemValue : MonoBehaviour
         }
     }
 
-    public void BuyItem()
+    public override void BuyItem()
     {
         if(strItem == StrItem.Stage10)
         {

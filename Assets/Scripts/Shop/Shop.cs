@@ -21,7 +21,7 @@ public class Shop : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager.coins < PlayerPrefs.GetFloat("ItemPrice"))
+        if (PlayerPrefs.GetFloat("Coins") < PlayerPrefs.GetFloat("ItemPrice"))
         {
             strBuyBtn.GetComponent<Button>().interactable = false;
         }
@@ -32,7 +32,7 @@ public class Shop : MonoBehaviour
 
         if (strItem == StrItem.Stage10)
         {
-            strBuyBtn.GetComponent<Button>().interactable = false;
+            strBuyBtn.SetActive(false);
         }
     }
 
@@ -76,9 +76,9 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void BuyItem()
+    public virtual void BuyItem()
     {
-        if(gameManager.coins >= PlayerPrefs.GetFloat("ItemPrice"))
+        if(PlayerPrefs.GetFloat("Coins") >= PlayerPrefs.GetFloat("ItemPrice"))
         {
             PlayerPrefs.SetFloat("Coins", gameManager.coins -= PlayerPrefs.GetFloat("ItemPrice"));
             gameManager.coinsTxt.text = Mathf.FloorToInt(PlayerPrefs.GetFloat("Coins")).ToString();
